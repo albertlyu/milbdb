@@ -24,7 +24,7 @@ def get_gid_dirs(master_game_url):
   root = ET.fromstring(r.content)
   gid_dirs = []
   for child in root:
-    if child.attrib['status'] == 'Final':
+    if child.attrib['status'] == 'Final' and 'game//year_' not in child.attrib['boxscore']:
       boxscore_xml_url = child.attrib['boxscore']
       gid_dir = boxscore_xml_url.replace(boxscore_xml_url.split('/')[-1],'')
       gid_dirs.append(gid_dir)

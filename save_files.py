@@ -13,17 +13,15 @@ if __name__ == "__main__":
     print("Invalid start and end dates ('YYYY-MM-DD').")
     sys.exit()
 
-  # Fetch gid directories for a given date range
-  urls = stage.get_master_urls(dates)
-  gid_dirs = []
-  for url in urls:
-    gid_dirs.extend(stage.get_gid_dirs(url))
-
-  # Fetch files given gid directories and file names
+  # Fetch files given gid directories spanning date range
+  master_urls = stage.get_master_urls(dates)
   file_names = ['boxscore.json','linescore.json','game_events.json','plays.json']
   base_url = "http://gdx.mlb.com/components/game/"
   base_path = "data/"
-  game_file_urls = [gid_dir+file_name for gid_dir in gid_dirs for file_name in file_names]
+  gid_dirs = []
+  for url in master_urls:
+    gid_dirs = stage.get_gid_dirs(url)
+    game_file_urls = [gid_dir+file_name for gid_dir in gid_dirs for file_name in file_names]
 
-  for game_file_url in game_file_urls:
-    stage.save_game_file(game_file_url,base_url,base_path)
+    for game_file_url in game_file_urls:
+      stage.save_game_file(game_file_url,base_url,base_path)
