@@ -1,5 +1,8 @@
 # milbdb
 
+## Introduction
+This project starts as a sandbox for me learn PostgreSQL's JSON operators and functions on json and jsonb data types, using Minor League Baseball JSON data.
+
 ## Requirements
 This project was built with Python 2.7.5 and PostgreSQL 9.4.0. The initial prototype was created on an OS X machine, in which PostgreSQL 9.4.0 was installed with [Postgresapp 9.4.0.1](https://github.com/PostgresApp/PostgresApp/releases/tag/9.4.0.1).
 
@@ -23,6 +26,10 @@ $ python save_files.py 2014-10-01 2014-10-31
 Load some JSON data from data source into your database:
 ```
 $ python load_json.py 2014-10-01 2014-10-31
+```
+Test a SQL query stored in a .sql file in the ```sql``` folder:
+```
+$ psql -U [USERNAME] -d milbdb -f 'sql/game_metadata.sql'
 ```
 
 ## Credits
