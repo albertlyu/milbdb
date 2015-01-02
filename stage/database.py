@@ -13,7 +13,7 @@ def create_connection(config_file):
   database = config.get('postgresql','database')
   username = config.get('postgresql','username')
   password = config.get('postgresql','password')
-  conn_string = "host='" + localhost + "' dbname='" + database + "' user='" + username + "' password='" + password + "'"
+  conn_string = "host='%s' dbname='%s' user='%s' password='%s'" % (localhost,database,username,password)
   print("Connecting to database...")
   conn = psycopg2.connect(conn_string)
   print("Connection established!")
