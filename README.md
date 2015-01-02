@@ -4,7 +4,10 @@
 This project starts as a sandbox for me learn PostgreSQL's JSON operators and functions on json and jsonb data types, using Minor League Baseball JSON data.
 
 #### Requirements
-This project was built with Python 2.7.5 and PostgreSQL 9.4.0. The initial prototype was created on an OS X machine, in which PostgreSQL 9.4.0 was installed with [Postgresapp 9.4.0.1](https://github.com/PostgresApp/PostgresApp/releases/tag/9.4.0.1).
+This project was built with Python 2.7.5 and PostgreSQL 9.4.0. The initial prototype was created on an OS X machine, in which PostgreSQL 9.4.0 was installed with [PostgresApp 9.4.0.1](https://github.com/PostgresApp/PostgresApp/releases/tag/9.4.0.1). ```virtualenv```'s version is 1.11.6, so if you choose to use a virtual environment, you might have to install the specific version I used like so:
+```
+$ pip install virtualenv==1.11.6
+```
 
 #### Configuration
 Update ```config.ini``` with your PostgreSQL credentials. Then create a ```milbdb``` database in your PostgreSQL 9.4 instance:
