@@ -29,7 +29,7 @@ $ python load_json.py 2014-10-01 2014-10-31
 ```
 Test a SQL query stored in a .sql file in the ```sql``` folder:
 ```
-$ psql -U [USERNAME] -d milbdb -f 'sql/game_metadata.sql'
+$ psql -U [USERNAME] -d milbdb -f sql/game_metadata.sql
 ```
 
 ### Credits
