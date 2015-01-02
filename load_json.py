@@ -54,9 +54,14 @@ if __name__ == "__main__":
       r = requests.get(game_file_url)
       if r.status_code == 200:
         insert_record = "INSERT INTO json_data (gid,league,file_type,data) VALUES ('%s','%s','%s',$$%s$$);" % (gid,league,file_type,r.text)
-        cursor.execute(insert_record)
-        conn.commit()
-        print("Inserted %s record for %s" % (file_type,gid))
+        try:
+          cursor.execute(insert_record)
+        except psycopg2.IntegrityError:
+          conn.rollback()
+          print("Error: Integrity violation with %s, %s" % (gid, file_type))
+        else:
+          conn.commit()
+          print("Inserted %s record for %s" % (file_type,gid))
       else:
         print("%s: Invalid URL was given at %s" % (r.status_code,game_file_url))
 
