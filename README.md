@@ -22,4 +22,6 @@ $ pip install -r requirements.txt
 $ python save_files.py 2014-10-01 2014-10-31
 ```
 * Load some JSON data from data source into your database:
+```
 $ python load_json.py 2014-10-01 2014-10-31
+```
