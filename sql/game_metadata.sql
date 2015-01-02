@@ -6,7 +6,7 @@ data: returns metadata about each game
   home team full name
   away team full name
   venue name
-runtime: ~6 seconds (pgAdmin3)
+runtime: ~6 seconds for ~800 boxscore.json files
 */
 
 SELECT gid
