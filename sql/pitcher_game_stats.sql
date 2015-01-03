@@ -18,7 +18,7 @@ data: returns pitcher game stats for gid_2015_01_01_canwin_melwin_1
 SELECT gid
   ,((json_data.data->>'data')::json->>'boxscore')::json->>'home_fname' AS home_fname
   ,((json_data.data->>'data')::json->>'boxscore')::json->>'away_fname' AS away_fname
-  ((json_array_elements((((json_data.data->>'data')::json->>'boxscore')::json->>'pitching')::json))->>'team_flag') AS team_flag
+  ,((json_array_elements((((json_data.data->>'data')::json->>'boxscore')::json->>'pitching')::json))->>'team_flag') AS team_flag
   --,json_array_elements((((json_data.data->>'data')::json->>'boxscore')::json->>'pitching')::json) AS pitching
   --,json_array_elements((((json_data.data->>'data')::json->>'boxscore')::json->>'pitching')::json)->>'pitcher' AS pitchers
   --,json_array_elements((json_array_elements((((json_data.data->>'data')::json->>'boxscore')::json->>'pitching')::json)->>'pitcher')::json) AS pitcher
